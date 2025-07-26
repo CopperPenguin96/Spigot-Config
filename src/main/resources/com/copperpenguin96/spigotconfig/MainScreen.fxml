@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.copperpenguin96.spigotconfig.MainScreen">
+    <Label layoutX="14.0" layoutY="14.0" text="Server Configuration">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <TabPane fx:id="tpConfig" layoutX="16.0" layoutY="49.0" prefHeight="360.0" prefWidth="574.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="General">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="574.0">
+                <TextField fx:id="txtServerName" layoutX="90.0" layoutY="14.0" prefHeight="25.0" prefWidth="236.0" />
+                <Label fx:id="lblServerName" layoutX="14.0" layoutY="18.0" text="Server Name" />
+
+                <TextField fx:id="txtServerIp" layoutX="28.0" layoutY="48.0" prefHeight="25.0" prefWidth="297.0" />
+                <Label fx:id="lblIP" layoutX="14.0" layoutY="52.0" text="IP" />
+
+                <Spinner fx:id="numPort" editable="true" layoutX="364.0" layoutY="48.0" max="65565" min="1" prefHeight="25.0" prefWidth="195.0" />
+                <Label fx:id="lblPort" layoutX="336.0" layoutY="52.0" text="Port" />
+                <Spinner fx:id="numMaxPlayers" layoutX="410.0" layoutY="14.0" max="2147483647" min="1" prefHeight="25.0" prefWidth="148.0" />
+                <Label fx:id="lblMaxPlayers" layoutX="336.0" layoutY="18.0" text="Max Players" />
+                <TextField fx:id="txtMotd" layoutX="53.0" layoutY="83.0" prefHeight="25.0" prefWidth="443.0" />
+                <Button fx:id="btnFormats" layoutX="499.0" layoutY="83.0" mnemonicParsing="false" text="Formats" />
+                <Label fx:id="lblMotd" layoutX="14.0" layoutY="87.0" text="MOTD" />
+                <ComboBox fx:id="cboMode" layoutX="15.0" layoutY="123.0" prefWidth="150.0" promptText="Game Mode">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Survival" />
+                            <String fx:value="Creative" />
+                            <String fx:value="Adventure" />
+                            <String fx:value="Spectator" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <ComboBox fx:id="cboDifficulty" layoutX="15.0" layoutY="155.0" prefWidth="150.0" promptText="Difficulty">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Peaceful" />
+                            <String fx:value="Easy" />
+                            <String fx:value="Normal" />
+                            <String fx:value="Hard" />
+                            <String fx:value="Hardcore" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <CheckBox fx:id="chkForceGameMode" layoutX="172.0" layoutY="159.0" mnemonicParsing="false" text="Force Game Mode" />
+                <CheckBox fx:id="chkEnableStatus" layoutX="172.0" layoutY="127.0" mnemonicParsing="false" text="Enable Status" />
+                <CheckBox fx:id="chkHideOnline" layoutX="289.0" layoutY="127.0" mnemonicParsing="false" text="Hide Online Players" />
+
+
+            </AnchorPane>
+        </Tab>
+        <Tab text="Players/Chat">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <CheckBox fx:id="chkConsoleOps" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Broadcast Console to Ops" />
+                <CheckBox fx:id="chkPvP" layoutX="188.0" layoutY="14.0" mnemonicParsing="false" text="Enable PvP " />
+                <Spinner fx:id="numIdleTimeout" layoutX="396.0" layoutY="10.0" prefHeight="25.0" prefWidth="164.0" />
+                <Label fx:id="lblIdleTimeout" layoutX="287.0" layoutY="14.0" text="Player Idle Timeout" />
+                <Label layoutX="213.0" layoutY="156.0" text="Coming Soon! Chat Preview" />
+            </AnchorPane>
+        </Tab>
+        <Tab text="World">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <Label layoutX="14.0" layoutY="14.0" text="* Only applies to main world settings" />
+                <TextField fx:id="txtWorldName" layoutX="51.0" layoutY="31.0" prefHeight="25.0" prefWidth="512.0" />
+                <Label layoutX="14.0" layoutY="35.0" text="Name" />
+                <TextField fx:id="txtSeed" layoutX="51.0" layoutY="64.0" prefHeight="25.0" prefWidth="512.0" />
+                <Label layoutX="17.0" layoutY="68.0" text="Seed" />
+                <CheckBox fx:id="chkStructures" layoutX="14.0" layoutY="172.0" mnemonicParsing="false" text="Generate Structures?" />
+                <CheckBox fx:id="chkMonsters" layoutX="159.0" layoutY="172.0" mnemonicParsing="false" text="Spawn Monsters?" />
+                <Spinner fx:id="numMaxWorldSize" layoutX="109.0" layoutY="100.0" prefHeight="25.0" prefWidth="76.0" />
+                <Label layoutX="17.0" layoutY="104.0" text="Max World Size" />
+                <Spinner fx:id="numSimDist" layoutX="307.0" layoutY="100.0" prefHeight="25.0" prefWidth="76.0" />
+                <Label layoutX="195.0" layoutY="104.0" text="Simulation Distance" />
+                <Spinner fx:id="numViewDist" layoutX="473.0" layoutY="100.0" prefHeight="25.0" prefWidth="75.0" />
+                <Label layoutX="391.0" layoutY="104.0" text="View Distance" />
+                <Spinner fx:id="numSpawnProtection" layoutX="123.0" layoutY="140.0" prefHeight="25.0" prefWidth="72.0" />
+                <Label layoutX="17.0" layoutY="144.0" text="Spawn Protection" />
+                <ComboBox fx:id="cboLevelType" layoutX="270.0" layoutY="140.0" prefHeight="25.0" prefWidth="278.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Normal" />
+                            <String fx:value="Flat" />
+                            <String fx:value="Large Biomes" />
+                            <String fx:value="Amplified" />
+                            <String fx:value="Single Biome Surface" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label layoutX="209.0" layoutY="144.0" text="Level Type" />
+            </AnchorPane>
+        </Tab>
+        <Tab text="Security">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <CheckBox fx:id="chkEnforceWhitelist" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#whitelistCheck" text="Enable Whitelist" />
+                <ListView fx:id="listWhitelist" layoutX="14.0" layoutY="31.0" prefHeight="255.0" prefWidth="148.0" />
+                <Button fx:id="btnAdd" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" text="Add" />
+                <Button fx:id="btnRemove" layoutX="62.0" layoutY="291.0" mnemonicParsing="false" text="Remove" />
+                <CheckBox fx:id="chkTransfers" layoutX="174.0" layoutY="14.0" mnemonicParsing="false" text="Accept Transfers" />
+                <CheckBox fx:id="chkEnforceSecProfile" layoutX="174.0" layoutY="41.0" mnemonicParsing="false" text="Enforce Secure Profile" />
+                <CheckBox fx:id="ckLogIp" layoutX="174.0" layoutY="69.0" mnemonicParsing="false" text="Log IP's" />
+                <CheckBox fx:id="chkOnlineMode" layoutX="174.0" layoutY="98.0" mnemonicParsing="false" text="Online Mode" />
+                <CheckBox fx:id="chkPreventProxy" layoutX="174.0" layoutY="127.0" mnemonicParsing="false" text="Prevent Proxy Connections" />
+            </AnchorPane>
+        </Tab>
+        <Tab text="Advanced">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <CheckBox fx:id="chkQuery" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#queryCheck" text="Enable Query" />
+                <Spinner fx:id="numQueryPort" layoutX="182.0" layoutY="10.0" prefHeight="25.0" prefWidth="86.0" />
+                <Label layoutX="114.0" layoutY="14.0" text="Query Port" />
+                <CheckBox fx:id="chkRcon" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#rconCheck" text="Enable R-con" />
+
+                <Spinner fx:id="numRconPort" layoutX="182.0" layoutY="39.0" prefHeight="25.0" prefWidth="86.0" />
+                <Label layoutX="115.0" layoutY="43.0" text="R-con Port" />
+                <TextField fx:id="txtRconPassword" layoutX="115.0" layoutY="67.0" prefHeight="25.0" prefWidth="154.0" />
+                <Label layoutX="14.0" layoutY="71.0" text="R-con Password" />
+                <CheckBox fx:id="chkRconOps" layoutX="14.0" layoutY="100.0" mnemonicParsing="false" text="Broadcast R-con to ops" />
+                <Spinner fx:id="numFuncPermLevel" layoutX="417.0" layoutY="10.0" prefHeight="25.0" prefWidth="143.0" />
+                <Label layoutX="273.0" layoutY="14.0" text="Function Permission Level" />
+                <Spinner fx:id="numMaxTickTime" layoutX="359.0" layoutY="39.0" prefHeight="25.0" prefWidth="200.0" />
+                <Label layoutX="273.0" layoutY="43.0" text="Max Tick Time" />
+                <Spinner fx:id="numRateLimit" layoutX="335.0" layoutY="67.0" prefHeight="25.0" prefWidth="224.0" />
+                <Label layoutX="273.0" layoutY="71.0" text="Rate Limit" />
+                <ComboBox fx:id="cboRegionFileCompr" layoutX="410.0" layoutY="96.0" prefWidth="150.0" promptText="Choose one">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="deflate" />
+                            <String fx:value="lz4" />
+                            <String fx:value="none" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label layoutX="269.0" layoutY="100.0" text="Region File Compression" />
+                <Spinner fx:id="numMaxChain" layoutX="346.0" layoutY="130.0" prefHeight="25.0" prefWidth="214.0" />
+                <CheckBox fx:id="chkCmdBlock" layoutX="14.0" layoutY="134.0" mnemonicParsing="false" text="Enable Command Block" />
+                <CheckBox fx:id="chkJmx" layoutX="14.0" layoutY="166.0" mnemonicParsing="false" text="Enable JMX Monitoring" />
+                <CheckBox fx:id="chkSyChunkWr" layoutX="172.0" layoutY="195.0" mnemonicParsing="false" text="Sync Chunk Writes" />
+                <CheckBox fx:id="chkUseNativeTransport" layoutX="14.0" layoutY="195.0" mnemonicParsing="false" text="Use Native Transport" />
+                <Label layoutX="172.0" layoutY="134.0" text="Max Chained Neighbor Updates" />
+                <Spinner fx:id="numNetComprThresh" layoutX="347.0" layoutY="162.0" prefHeight="25.0" prefWidth="213.0" />
+                <Label layoutX="168.0" layoutY="166.0" text="Network Compression Threshold" />
+            </AnchorPane>
+        </Tab>
+        <Tab text="Misc">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TextField fx:id="txtBugLink" layoutX="108.0" layoutY="14.0" prefHeight="25.0" prefWidth="453.0" />
+                <Label layoutX="14.0" layoutY="18.0" text="Bug Report Link" />
+                <Spinner fx:id="numOpPerm" layoutX="130.0" layoutY="47.0" prefHeight="25.0" prefWidth="62.0" />
+                <Label layoutX="14.0" layoutY="51.0" text="Op Permission Level" />
+                <Spinner fx:id="numEmptySec" layoutX="519.0" layoutY="47.0" prefHeight="25.0" prefWidth="41.0" />
+                <Label layoutX="397.0" layoutY="51.0" text="Empty Second Pause" />
+                <Spinner fx:id="numEntBroad" layoutX="331.0" layoutY="47.0" prefHeight="25.0" prefWidth="54.0" />
+                <Label layoutX="207.0" layoutY="51.0" text="Entity Broadcast Rane" />
+                <CheckBox fx:id="chkFlight" layoutX="14.0" layoutY="80.0" mnemonicParsing="false" text="Allow Flight" />
+                <CheckBox fx:id="chkNether" layoutX="108.0" layoutY="80.0" mnemonicParsing="false" text="Allow Nether" />
+                <TextField fx:id="txtResPack" layoutX="99.0" layoutY="108.0" prefHeight="25.0" prefWidth="391.0" />
+                <Label layoutX="14.0" layoutY="112.0" text="Resource Pack" />
+                <CheckBox fx:id="chkForceResPack" layoutX="497.0" layoutY="112.0" mnemonicParsing="false" text="Require" />
+                <Label layoutX="14.0" layoutY="141.0" text="Data Packs" />
+                <ListView fx:id="listDataDisable" layoutX="14.0" layoutY="165.0" prefHeight="155.0" prefWidth="200.0" />
+                <ListView fx:id="listDataEnable" layoutX="358.0" layoutY="165.0" prefHeight="156.0" prefWidth="200.0" />
+                <Button fx:id="btnDataEnable" layoutX="219.0" layoutY="208.0" mnemonicParsing="false" onAction="#enablePack" prefHeight="25.0" prefWidth="136.0" text="Enable -&gt;" />
+                <Button fx:id="btnDataDisable" layoutX="219.0" layoutY="243.0" mnemonicParsing="false" onAction="#disablePack" prefHeight="25.0" prefWidth="136.0" text="&lt;- Disable" />
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+    <Button fx:id="btnExit" layoutX="546.0" layoutY="414.0" mnemonicParsing="false" onAction="#onExit" text="Exit" />
+    <Button fx:id="btnSave" layoutX="493.0" layoutY="414.0" mnemonicParsing="false" onAction="#save" text="Save" />
+</AnchorPane>
