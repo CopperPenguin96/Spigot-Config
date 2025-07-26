@@ -5,14 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.copperpenguin96</groupId>
-    <artifactId>spigotconfig</artifactId>
+    <artifactId>spigot-config</artifactId>
     <version>1.0</version>
-    <name>SpigotConfig</name>
+    <name>Spigot-Config</name>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.2</junit.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <url>https://svn.apache.org/viewvc/maven</url>
+    </scm>
 
     <dependencies>
         <dependency>
