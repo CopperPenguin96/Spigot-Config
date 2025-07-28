@@ -1,5 +1,6 @@
 package com.copperpenguin96.spigotconfig;
 
+import com.copperpenguin96.spigotconfig.Examples.SpigotConfig;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -40,7 +41,6 @@ public class MainScreen implements Initializable {
         // Basic initialization
         setSpinnerValueFactories();
         setToolTips();
-
         // Loading datapacks
         File datapackDir = new File("datapacks/");
         if (datapackDir.isDirectory() && datapackDir.exists()) {
@@ -101,11 +101,11 @@ public class MainScreen implements Initializable {
                                 ConfigManifest ms = (ConfigManifest) obj;
                                 updateScreen(ms);
                             } else {
+                                System.out.println("Didn't find SpigotConfig");
                                 continue; // They didn't extend from ConfigManifest. Must extend
                             }
                         } catch (Exception e) {
-                            e.printStackTrace();
-                            continue; // they don't have it, or it's not in the right place
+                            e.printStackTrace();// they don't have it, or it's not in the right place, or some other goofy issue
                         }
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
@@ -268,6 +268,17 @@ public class MainScreen implements Initializable {
      * Determines if changes were made or not, if not, exits. If there were changes, prompts them to save.
      */
     public void onExit(ActionEvent event) {
+        boolean changes = _changesMade;
+
+        for (ConfigManifest mf : ExtConfigs) {
+            for (ConfigTab tab : mf.getTabs()) {
+                if (tab.changesMade()) {
+                    changes = true;
+                    break;
+                }
+            }
+        }
+
         if (_changesMade) {
             Alert confirmation = new Alert(Alert.AlertType.WARNING);
             confirmation.setTitle("Save before exiting?");
@@ -288,7 +299,7 @@ public class MainScreen implements Initializable {
         }
     }
 
-    /// Stores plugin config manifests.
+    /// Stores plugin config manifests. Useful for when checking for changes. (if properly setup)
     public static ArrayList<ConfigManifest> ExtConfigs = new ArrayList<ConfigManifest>();
 
     /**
@@ -296,7 +307,6 @@ public class MainScreen implements Initializable {
      */
     public void updateScreen(ConfigManifest i) {
         ExtConfigs.add(i);
-
         for (ConfigTab config : i.getTabs()) {
             Tab tab = new Tab(config.Name);
 

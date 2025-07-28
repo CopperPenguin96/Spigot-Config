@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.copperpenguin96</groupId>
-  <artifactId>Spigot-Config</artifactId>
-  <name>Spigot-Config</name>
+  <artifactId>spigot-config</artifactId>
+  <name>spigot-config</name>
   <version>1.0</version>
   <scm>
     <url>https://svn.apache.org/viewvc/maven</url>
@@ -17,6 +17,29 @@
       </resource>
     </resources>
     <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.7.1</version>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.copperpenguin96.spigotconfig.SpigotConfigApplication</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.5.3</version>
@@ -32,7 +55,7 @@
           <outputFile>../../OneDrive/Documents/TestServer/SpigotConfig-${version}.jar</outputFile>
           <transformers>
             <transformer>
-              <mainClass>com.copperpenguin96.spigotconfig.ConfigApplication</mainClass>
+              <mainClass>com.copperpenguin96.spigotconfig.SpigotConfigApplication</mainClass>
             </transformer>
           </transformers>
         </configuration>
@@ -53,7 +76,7 @@
           <execution>
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.copperpenguin96.sigotconfig/com.copperpenguin96.spigotconfig.ConfigApplication</mainClass>
+              <mainClass>com.copperpenguin96.sigotconfig/com.copperpenguin96.spigotconfig.SpigotConfigApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
@@ -106,13 +129,19 @@
   </dependencies>
   <distributionManagement>
     <repository>
-      <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+      <id>repsy</id>
+      <name>Public Repo for RM projects</name>
+      <url>https://repo.repsy.io/mvn/copperpenguin96/rusty-mineshaft</url>
     </repository>
+    <snapshotRepository>
+      <id>github</id>
+      <name>Github</name>
+      <url>https://maven.pkg.github.com/CopperPenguin96/Spigot-Config</url>
+    </snapshotRepository>
   </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>5.10.2</junit.version>
+    <github.global.server>github</github.global.server>
   </properties>
 </project>

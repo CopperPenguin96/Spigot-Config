@@ -1,5 +1,10 @@
 package com.copperpenguin96.spigotconfig;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -19,8 +24,7 @@ public abstract class ConfigManifest {
     }
 
     /**
-     * Adds a tab.
-     * @param tab
+     * Adds a tab to be loaded and handled by the GUI.
      */
     protected void add(ConfigTab tab) {
         _tabs.add(tab);
